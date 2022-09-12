@@ -8,7 +8,7 @@
 
 ##### 1. Bagan request client ke web aplikasi berbasis Django beserta responnya dan penjelasan tentang kaitannya dengan urls.py, views.py, models.py, dan berkas html
 
-![Bagan](Bagan Tugas 2 PBP.png)
+![Bagan Tugas 2 PBP](https://user-images.githubusercontent.com/87516736/189702785-bf3d0a42-d685-49a4-b60f-972ef85d3bfa.png)
 
 Kaitan :
 - Pada Web aplikasi berbasis Django, urls.py bertugas sebagai URLconf (pada bagan), dimana pada file ini akan dipetakan seluruh path dengan function yang tersedia pada file views.py. Sehingga jika terdapat request dari User/Client berbentuk URL, maka urls.py akan meneruskan request ke fungsi view yang dipicu berdasarkan path yang telah ditentukan.
