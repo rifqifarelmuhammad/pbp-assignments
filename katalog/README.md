@@ -6,7 +6,7 @@
 
 ## Jawaban dari Pertanyaan
 
-#### 1. Bagan request client ke web aplikasi berbasis Django beserta responnya dan penjelasan tentang kaitannya dengan urls.py, views.py, models.py, dan berkas html
+### 1. Bagan request client ke web aplikasi berbasis Django beserta responnya dan penjelasan tentang kaitannya dengan urls.py, views.py, models.py, dan berkas html
 
 ![Bagan Tugas 2 PBP](https://user-images.githubusercontent.com/87516736/189702785-bf3d0a42-d685-49a4-b60f-972ef85d3bfa.png)
 
@@ -19,7 +19,7 @@ Kaitan :
 
 - Berkas html bertugs sebagai Template (pada bagan), dimana pada berkas ini terdiri dari beberapa file html yang berfungsi sebagai tampilan halaman web yang dimana fungsi-fungsi pada views.py akan memilih html mana yang akan digunakan untuk ditampilkan kepada User/Client, atau yang biasa disebut dengan response
 
-#### 2. Mengapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+### 2. Mengapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 
 Virtual environment merupakan sebuah alat yang berfungsi untuk menjaga ruang antar proyek di komputer dengan cara mengisolasi package serta dependencies dari aplikasi sehingga tidak bertabrakan dengan versi lain yang ada di komputer. Virtual environment memiliki sifat spesifik pada proyek tertentu dan tidak berinterfer dengan dependensi proyek lainnya.
 
@@ -29,7 +29,7 @@ Oleh karena itu, kita menggunakan virtual environment pada pembuatan aplikasi we
 
 Walaupun begitu, kita masih bisa membuat aplikasi web berbasis Django tanpa menggunakan virtual environment, karena pada dasarnya virtual environment hanyalah sebatas alat bantu saja, bukan sebuah alat wajib pada pembuatan aplikasi web berbasis Django. Akan tetapi, cara ini sangat tidak direkomendasikan karena bisa mengakibatkan conflict dependancy antara satu proyek dengan proyek lainnya ataupun dengan global environment suatu device, terutama jika aplikasi web akan digunakan atau dijalankan di device lain. Karena jika requirement dari aplikasi web yang kita buat ternyata berbeda dengan requirement proyek lainnya atau global environment pada suatu device, maka device yang kita gunakan otomatis akan melakukan instalasi sesuai dengan requirement aplikasi web tersebut dan dapat mengakibatkan tabrakan karena adanya 2 tools yang sama dengan versi yang berbeda.
 
-#### 3. Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas!
+### 3. Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas!
 
 - Poin 1
 Pada file views.py, saya membuat suatu fungsi bernama 'show_katalog' dimana ia akan mengambil query beserta data dari models.py menggunakan syntax 'CatalogItem.objects.all()', dimana 'CatalogItem' merupakan nama query yang terdapat di models.py. Setelah itu, fungsi 'show_katalog' akan mengembalikan sebuah file HTML bernama 'katalog.html' beserta dengan data-data yang dibutuhkan oleh file HTML tersebut.
