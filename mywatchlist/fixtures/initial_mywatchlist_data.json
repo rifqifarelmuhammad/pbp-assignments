@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 1,
+        "fields": {
+            "watched": true,
+            "title": "Titanic",
+            "rating": 5,
+            "release_date": "5 January 1998",
+            "review": "A very good movie to watch"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 2,
+        "fields": {
+            "watched": false,
+            "title": "Minions: The Rise of Gru",
+            "rating": 5,
+            "release_date": "1 July 2022",
+            "review": "One of the best sequels ever made"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 3,
+        "fields": {
+            "watched": true,
+            "title": "Star Wars: The Rise of Skywalker",
+            "rating": 3,
+            "release_date": "16 December 2019",
+            "review": "A nice movie but nothing special"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 4,
+        "fields": {
+            "watched": true,
+            "title": "Men In Black: International",
+            "rating": 3,
+            "release_date": "19 June 2019",
+            "review": "Just a normal movie"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 5,
+        "fields": {
+            "watched": false,
+            "title": "Mencuri Raden Saleh",
+            "rating": 4,
+            "release_date": "25 August 2022",
+            "review": "One of the best films in 2022"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 6,
+        "fields": {
+            "watched": true,
+            "title": "F:9 The Fast Saga",
+            "rating": 2,
+            "release_date": "16 Juni 2021",
+            "review": "Weird..."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 7,
+        "fields": {
+            "watched": false,
+            "title": "frozen 2",
+            "rating": 4,
+            "release_date": "20 November 2019",
+            "review": "A good movie, but Frozen 1 is better than Frozen 2"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 8,
+        "fields": {
+            "watched": true,
+            "title": "Avengers: Endgame",
+            "rating": 5,
+            "release_date": "24 April 2019",
+            "review": "One of the best movies ever made"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 9,
+        "fields": {
+            "watched": false,
+            "title": "Little Women",
+            "rating": 5,
+            "release_date": "7 February 2020",
+            "review": "A nice series movie for women"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlistitem",
+        "pk": 10,
+        "fields": {
+            "watched": false,
+            "title": "Me Before You",
+            "rating": 5,
+            "release_date": "27 August 2016",
+            "review": "What a movie!"
+        }
+    }
+]
