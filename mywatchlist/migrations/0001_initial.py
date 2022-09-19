@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('watched', models.BooleanField()),
                 ('title', models.TextField()),
-                ('rating', models.IntegerField(max_length=1)),
+                ('rating', models.IntegerField()),
                 ('release_date', models.TextField()),
                 ('review', models.TextField()),
             ],
