@@ -2,6 +2,8 @@
 
  {% block content %}
 
+ <h3>{{pesan}}</h3>
+
  <table>
     <tr>
       <th>Watched</th>
@@ -10,7 +12,7 @@
       <th>Release Date</th>
       <th>Review</th>
     </tr>
-    {% comment %} Add the data below this line {% endcomment %}
+    
     {% for film in list_film %}
     <tr>
       <th>{{film.watched}}</th>
