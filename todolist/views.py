@@ -17,7 +17,7 @@ def show_todolist(request):
     if request.user.is_authenticated:
         username = request.user.get_username()
 
-    data_task = Task.objects.all()
+    data_task = Task.objects.filter(user=request.user)
 
     context = {
         'username': username,
