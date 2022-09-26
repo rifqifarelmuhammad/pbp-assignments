@@ -1,0 +1,175 @@
+*, html, body{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightyellow;
+}
+
+h1{
+    color:indigo;
+    font-size: 50px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.font-login{
+    text-align: center;
+}
+
+.table-login{
+    margin-left:auto; 
+    margin-right:auto; 
+}
+
+td{
+    font-size: 18px;
+    text-align: left;
+}
+
+.form-control{
+    width: 150px;
+    height: 22px;
+    font-style:initial;
+    margin-bottom: 5px;
+}
+
+.login{
+    width: 100%;
+    text-align: center;
+}
+
+.btn-login_btn, .button-daftar{
+    height: 25px;
+    width: 75px;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color:indigo;
+    color:azure;
+    cursor: pointer;
+}
+
+.register{
+    width: 100%;
+    text-align: left;
+    align-items: left;
+}
+
+.font-formulir{
+    text-align: left;
+}
+
+.formulir-registrasi{
+    text-align: left;
+    align-items: left;
+    font-size: 17px;
+}
+
+.container1{
+    text-align: center;
+}
+
+.font-username{
+    color:mediumslateblue;
+    font-size: 25px;
+}
+
+.button-tambah-task{
+    margin-top: 10px;
+    background-color: indigo;
+    width: 180px;
+    text-align: center;
+}
+
+.button-logout{
+    background-color: indigo;
+    width: 100px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.font-button-tambah-task, .font-button-logout{
+    font-size: 18px;
+    font-weight: bold;
+    background-color:indigo;
+    color: aliceblue;
+    text-align: center;
+}
+
+.task-table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.font-table-todolist{
+    font-size: large;
+    background-color: bisque;
+    width: 140px;
+}
+
+.last-login{
+    font-size: medium;
+}
+
+.status{
+    width: 150px;
+}
+
+.tanggal{
+    width: 250px;
+}
+
+.judul{
+    width: 225px;
+}
+
+.deskripsi{
+    width: 300px;
+}
+
+.button-update{
+    width: 75px;
+    height: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: goldenrod;
+}
+
+.button-delete{
+    width: 75px;
+    height: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: red;
+}
+
+.font-update{
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    background-color: goldenrod;
+}
+
+.font-delete{
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    background-color: red;
+}
+
+.create_task{
+    text-align: center;
+    background-color: lightyellow;
+}
+
+.table-create{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: lightyellow;
+}

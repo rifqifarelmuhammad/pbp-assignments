@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container1">
+    <h1>Todolist</h1>
+    
+    <h3 class="font-username">Username: {{username}}</h3>
+    
+    <button class="button-tambah-task"><a class="font-button-tambah-task"  href="{% url 'todolist:create_task' %}">Tambah Task Baru</a></button>
+</div>
+
+<div class="task-table">
+    <table border="1">
+        <tr>
+        <th class="font-table-todolist">Tanggal Pembuatan Task</th>
+        <th class="font-table-todolist">Judul Task</th>
+        <th class="font-table-todolist">Deskripsi Task</th>
+        <th class="font-table-todolist">Status</th>
+        <th class="font-table-todolist">Update Task</th>
+        <th class="font-table-todolist">Delete Task</th>
+        </tr>
+        {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+        {% for task in list_task %}
+        <tr>
+            <th class="tanggal">{{task.date}}</th>
+            <th class="judul">{{task.title}}</th>
+            <th class="deskripsi">{{task.description}}</th>
+    
+            {% if task.is_finished == False %}
+            <th class="status">Belum Selesai</th>
+            {% else %}
+            <th class="status">Selesai</th>
+            {% endif %}
+    
+            <th><button class="button-update"><a class="font-update" href="{% url 'todolist:update' task.id %}">Update</a></button></th>
+            <th><button class="button-delete"><a class="font-delete" href="{% url 'todolist:delete' task.id %}">Delete</a></button></th>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="container1">
+    <h5 class="last-login">Sesi terakhir login: {{ last_login }}</h5>
+    
+    <button class="button-logout"><a class="font-button-logout" href="{% url 'todolist:logout' %}">Logout</a></button>
+</div>
+
+
+{% endblock content %}

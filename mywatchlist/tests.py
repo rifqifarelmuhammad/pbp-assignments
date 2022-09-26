@@ -17,7 +17,7 @@ class TestViews(TestCase):
         response = self.client.get(self.mywatchlistxml_url)
         self.assertEquals(response.status_code, 200)
 
-    def test_show_mywatchlist_JSON(self):
+    def test_showS_mywatchlist_JSON(self):
         self.client = Client()
         self.mywatchlistjson_url = reverse('mywatchlist:show_mywatchlist_JSON')
 
