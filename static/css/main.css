@@ -85,7 +85,6 @@ td{
     background-color: indigo;
     width: 100px;
     text-align: center;
-    margin-top: 5px;
 }
 
 .font-button-tambah-task, .font-button-logout{
@@ -101,17 +100,13 @@ td{
     justify-content: center;
     align-items: center;
     margin-top: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
 }
 
 .font-table-todolist{
     font-size: large;
     background-color: bisque;
     width: 140px;
-}
-
-.last-login{
-    font-size: medium;
 }
 
 .status{
