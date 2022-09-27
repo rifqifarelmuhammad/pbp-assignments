@@ -19,13 +19,10 @@ def show_todolist(request):
 
     data_task = Task.objects.filter(user=request.user)
 
-    if username != None:
-        context = {
-            'username': username,
-            'list_task': data_task
-        }
-    else:
-        context = {}
+    context = {
+        'username': username,
+        'list_task': data_task
+    }
 
     return render(request, "todolist.html", context)
 
@@ -47,6 +44,7 @@ def create_task(request):
     context = {'form':form}
     return render(request, "create_task.html", context)
 
+@login_required(login_url='/todolist/login/')
 def update(request, update_id):
     task_update = Task.objects.get(id=update_id)
 
@@ -59,6 +57,7 @@ def update(request, update_id):
 
     return redirect('todolist:show_todolist')
 
+@login_required(login_url='/todolist/login/')
 def delete(request, delete_id):
     Task.objects.filter(id=delete_id).delete()
     return redirect('todolist:show_todolist')
