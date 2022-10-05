@@ -11,21 +11,21 @@ from django.contrib.auth.decorators import login_required
 from todolist.forms import CreateTask
 
 # Create your views here.
-@login_required(login_url='/todolist/login/')
-def show_todolist(request):
-    username = None
-    if request.user.is_authenticated:
-        username = request.user.get_username()
+# @login_required(login_url='/todolist/login/')
+# def show_todolist(request):
+#     username = None
+#     if request.user.is_authenticated:
+#         username = request.user.get_username()
 
-    data_task = Task.objects.filter(user=request.user)
+#     data_task = Task.objects.filter(user=request.user)
 
-    context = {
-        'username': username,
-        'list_task': data_task,
-        'last_login': request.COOKIES['last_login']
-    }
+#     context = {
+#         'username': username,
+#         'list_task': data_task,
+#         'last_login': request.COOKIES['last_login']
+#     }
 
-    return render(request, "todolist.html", context)
+#     return render(request, "todolist.html", context)
 
 @login_required(login_url='/todolist/login/')
 def create_task(request):
