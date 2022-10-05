@@ -11,10 +11,10 @@ app_name = 'todolist'
 
 urlpatterns = [
     path('', show_todolist, name='show_todolist'),
-    path('register/', register, name='register'),
-    path('login/', login_user, name='login'),
-    path('logout/', logout_user, name='logout'),
-    path('create-task/', create_task, name='create_task'),
-    path('update/(?P<update_id>[0-9])$', update, name='update'),
-    path('delete/(?P<delete_id>[0-9])$', delete, name='delete'),
+    # path('register/', register, name='register'),
+    # path('login/', login_user, name='login'),
+    # path('logout/', logout_user, name='logout'),
+    # path('create-task/', create_task, name='create_task'),
+    # path('update/(?P<update_id>[0-9])$', update, name='update'),
+    # path('delete/(?P<delete_id>[0-9])$', delete, name='delete'),
 ]
