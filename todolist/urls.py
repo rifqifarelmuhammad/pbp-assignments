@@ -16,5 +16,5 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('create-task/', create_task, name='create_task'),
     path('update/(?P<update_id>[0-9])$', update, name='update'),
-    path('delete/(?P<delete_id>[0-9])$', delete, name='delete'),
+    # path('delete/(?P<delete_id>[0-9])$', delete, name='delete'),
 ]
