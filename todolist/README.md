@@ -60,37 +60,37 @@ Jika terdapat request dari user/client untuk menampilkan halaman HTML form mengg
 
 ### 2. Jelaskan tag HTML5 yang kamu ketahui.
 
-- <html>: Mendefine root file HTML
-- <body>: Mendefine bagian body file HTML
-- <head>: Mendefine bagian head file HTML
-- <header>: Mendefine bagian header file HTML
-- <footer>: Mendefine footer pada sebuah dokumen HTML
-- <div>: Mendefine sebuah divisi pada dokumen HTML
-- <nav>: Mendefine link navigasi
-- <style>: Mendefine style HTML di Head dokumen HTML
-- <title> Mendefine judul dokumen HTML
-- <h1> sampai <h6>: Menampilkan header HTML (memiliki ukuran huruf yang berbeda, <h1> memiliki huruf terbesar)
-- <a>: Mendefine Hyperlink
-- <b>: Menampilkan teks bold
-- <p>: Menampilkan paragraf
-- <hr>: Membuat garis mendatar atau horizontal
-- <textare>: Mendefine multi-line input text
-- <iframe>: Menampilkan url dalam inline frame
-- <img>: Menampilkan gambar pada file HTML
-- <label>: Mendefine label untuk kontrol input
-- <table>: Mendefine table
-- <td>: Mendefine cell dalam table
-- <th>: Mendefine cell teratas pada table
-- <button>: Membuat tombol pada file HTML
-- <ul>: Mendefine daftar yang tidak berurutan
-- <object>: Mendefine sebuah object pada file HTML
-- <caption>: Mendefine caption atau judul suatu tabel
-- <form>: Mendefine form HTML pada dokumen HTML
-- <embed>: Memasukkan aplikasi eksternal ke dalam dokumen HTML
-- <audio>: Memasukkan audio ke dalam file HTML
-- <video>: Memasukkan video ke dalam dokumen HTML
-- <code>: Mendefine teks sebagai code pemrograman
-- <script>: Tempat menaruh script pada dokumen HTML
+- <#html>: Mendefine root file HTML
+- <#body>: Mendefine bagian body file HTML
+- <#head>: Mendefine bagian head file HTML
+- <#header>: Mendefine bagian header file HTML
+- <#footer>: Mendefine footer pada sebuah dokumen HTML
+- <#div>: Mendefine sebuah divisi pada dokumen HTML
+- <#nav>: Mendefine link navigasi
+- <#style>: Mendefine style HTML di Head dokumen HTML
+- <#title> Mendefine judul dokumen HTML
+- <#h1> sampai <#h6>: Menampilkan header HTML (memiliki ukuran huruf yang berbeda, <#h1> memiliki huruf terbesar)
+- <#a>: Mendefine Hyperlink
+- <#b>: Menampilkan teks bold
+- <#p>: Menampilkan paragraf
+- <#hr>: Membuat garis mendatar atau horizontal
+- <#textare>: Mendefine multi-line input text
+- <#iframe>: Menampilkan url dalam inline frame
+- <#img>: Menampilkan gambar pada file HTML
+- <#label>: Mendefine label untuk kontrol input
+- <#table>: Mendefine table
+- <#td>: Mendefine cell dalam table
+- <#th>: Mendefine cell teratas pada table
+- <##button>: Membuat tombol pada file HTML
+- <#ul>: Mendefine daftar yang tidak berurutan
+- <#object>: Mendefine sebuah object pada file HTML
+- <#caption>: Mendefine caption atau judul suatu tabel
+- <#form>: Mendefine form HTML pada dokumen HTML
+- <#embed>: Memasukkan aplikasi eksternal ke dalam dokumen HTML
+- <#audio>: Memasukkan audio ke dalam file HTML
+- <#video>: Memasukkan video ke dalam dokumen HTML
+- <#code>: Mendefine teks sebagai code pemrograman
+- <#script>: Tempat menaruh script pada dokumen HTML
 
 ### 3. Jelaskan tipe-tipe CSS selector yang kamu ketahui.
 
