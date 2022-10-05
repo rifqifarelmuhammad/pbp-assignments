@@ -42,7 +42,14 @@ def create_task(request):
             task.save()
             return redirect('todolist:show_todolist')
 
-    context = {'form':form}
+    username = None
+    if request.user.is_authenticated:
+        username = request.user.get_username()
+
+    context = {
+        'form':form,
+        'username': username
+    }
     return render(request, "create_task.html", context)
 
 @login_required(login_url='/todolist/login/')

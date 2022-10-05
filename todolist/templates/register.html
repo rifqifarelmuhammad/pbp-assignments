@@ -6,31 +6,56 @@
 
 {% block content %}  
 
-<div class = "register">
-    
-    <h1 class="font-formulir">Formulir Registrasi</h1>  
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid navbar-dark bg-dark">
+        <a class="navbar-brand navbar-dark bg-dark">Welcome!</a>
+        <button class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon navbar-dark bg-dark"></span>
+          </button>
+          <div class="collapse navbar-collapse navbar-dark bg-dark" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link navbar-dark bg-dark" href="{% url 'todolist:login' %}">Login<span class="sr-only navbar-dark bg-dark"></span></a>
+                </li>
+              </ul>
+          </div>
+    </div>
+  </nav>
 
-        <form method="POST" >  
-            {% csrf_token %}  
-            <div class="formulir-registrasi">
-                <table>  
-                    {{ form.as_table }}  
-                    <tr>  
-                        <td></td>
-                        <td><input class="button-daftar" type="submit" name="submit" value="Daftar"/></td>  
-                    </tr>  
-                </table>  
-            </div>
-        </form>
+  <h1 class="text-zinc-800" style="font-weight:bold ; font-size:50px; text-align: center; margin-bottom: 20px;">Formulir Registrasi</h1>  
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-            {% endfor %}  
-        </ul>   
+<div class="items-center md:flex flex justify-center">
+    <form class="bg-zinc-800 shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label class="block text-white text-sm font-bold mb-2" for="username">
+                Username
+        </label>
+        <label class="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-zinc-800 leading-tight focus:outline-none focus:shadow-outline">{{form.username}}</label>
+    </div>
+    <div class="mb-6">
+        <label class="block text-white text-sm font-bold mb-2" for="password">
+            Password
+        </label>
+        <label class="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-zinc-800 leading-tight focus:outline-none focus:shadow-outline">{{form.password1}}</label>
+    </div>
+    <div class="mb-6">
+        <label class="block text-white text-sm font-bold mb-2" for="password">
+            Password confirmation
+        </label>
+        <label class="bg-white shadow appearance-none border rounded w-full py-2 px-3 text-zinc-800 leading-tight focus:outline-none focus:shadow-outline">{{form.password2}}</label>
+    </div>
+      <div class="flex items-center justify-center">
+        <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="submit" value="Daftar">
+    </div>
+    {% if messages %}
+        <ul style="margin-top: 5px;" class="text-white">
+            {% for message in messages %}
+                <li align="center">{{ message }}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
-
-</div>  
+</form>
+</div>
 
 {% endblock content %}
