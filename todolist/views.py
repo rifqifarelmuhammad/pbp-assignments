@@ -1,4 +1,5 @@
 import datetime
+import imp
 from todolist.models import Task
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
@@ -9,6 +10,10 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from todolist.forms import CreateTask
+from django.http import HttpResponse
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 # Create your views here.
 @login_required(login_url='/todolist/login/')
@@ -17,11 +22,12 @@ def show_todolist(request):
     if request.user.is_authenticated:
         username = request.user.get_username()
 
-    data_task = Task.objects.filter(user=request.user)
+    # data_task = Task.objects.filter(user=request.user)
 
     context = {
         'username': username,
-        'list_task': data_task,
+        # 'list_task': data_task,
+        'user': request.user,
         'last_login': request.COOKIES['last_login']
     }
 
@@ -102,3 +108,39 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('todolist:login'))
     response.delete_cookie('last_login')
     return response
+
+@login_required(login_url='/todolist/login/')
+def return_data_JSON(request):
+    data = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
+def add_task(request):
+    if request.method == 'POST':
+        date = datetime.datetime.now()
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        user = request.user
+        task = Task(user=user, date=date, title = title, description = description)
+        task.save()
+
+        output = {
+            'pk':task.pk,
+            'fields':{
+                'title':task.title,
+                'description':task.description,
+                'is_finished':task.is_finished,
+                'date':task.date,
+            }
+        }
+
+        return JsonResponse(output)
+
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
+def delete_task(request, delete_id):
+    if (request.method == 'DELETE'):
+        Task.objects.filter(id=delete_id).delete()
+
+        return HttpResponse(status=202)

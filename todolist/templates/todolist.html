@@ -1,16 +1,78 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $.get('/todolist/json', function(data){
+        for (i = 0; i < data.length; i++){
+          var card = `<div id="${data[i].pk}--task" class="card text-white bg-dark mb-3 transform transition duration-500 hover:scale-105 flex-auto" style="max-width: 17rem; min-width: 17rem;">
+          <div class="card-header text-white bg-dark mb-3"> ${data[i].fields.is_finished ? `Selesai`:`Belum Selesai`}
+          <div class="card-body text-white bg-dark mb-3">
+            <h4 class="card-title text-white bg-dark mb-3" style="text-align: center;">${data[i].fields.title}</h4>
+            <p class="card-text text-white bg-dark mb-3" style="text-align: center;">${data[i].fields.description}</p>
+            <div class="container text-white bg-dark mb-3" style="text-align: center;">
+                <a><button class="button-update bg-green-600" style="margin-right: 20px; width: 75px; height: 30px;"><a class="font-update" href="/todolist/update/${data[i].pk}">Update</a></button></a>
+                <a><button class="button-delete bg-red-600"style="width: 75px; height: 30px" ><a class="font-delete" onclick="deleteTask(${data[i].pk})">Delete</a></button></a>
+            </div>
+            <h6 class="card-title text-white bg-dark mb-3" style="text-align: center;">${data[i].fields.date}</h6>
+          </div>
+          </div>
+          </div>`
+          $('#todolist').append(card); 
+        }
+      });
+
+      $('#add-task').click(function(){
+        if ($('#title').val() && $('#description').val()){
+          $.post('/todolist/add/', {title: $('#title').val(), description: $('#description').val()}, function(response, status){
+            if (status == 'success'){
+              var card = `<div id="${response.pk}--task" class="card text-white bg-dark mb-3 transform transition duration-500 hover:scale-105 flex-auto" style="max-width: 17rem; min-width: 17rem;">
+              <div class="card-header text-white bg-dark mb-3"> ${response.fields.is_finished ? `Selesai`:`Belum Selesai`}
+              <div class="card-body text-white bg-dark mb-3">
+              <h4 class="card-title text-white bg-dark mb-3" style="text-align: center;">${response.fields.title}</h4>
+              <p class="card-text text-white bg-dark mb-3" style="text-align: center;">${response.fields.description}</p>
+              <div class="container text-white bg-dark mb-3" style="text-align: center;">
+                <a><button class="button-update bg-green-600" style="margin-right: 20px; width: 75px; height: 30px;"><a class="font-update" href="/todolist/update/${response.pk}">Update</a></button></a>
+                <a><button class="button-delete bg-red-600"style="width: 75px; height: 30px" ><a class="font-delete" onclick="deleteTask(${response.pk})">Delete</a></button></a>
+              </div>
+              <h6 class="card-title text-white bg-dark mb-3" style="text-align: center;">${response.fields.date}</h6>
+              </div>
+              </div>
+              </div>`
+              
+              $('#todolist').append(card);
+              $('#title').val('')
+              $('#description').val('')
+            }
+          })
+        }
+      })
+
+      deleteTask = (taskId) => {
+        $.ajax({
+          url: `/todolist/delete/${taskId}`,
+          type: 'DELETE',
+          success: function(response){
+            $(`#${taskId}--task`).remove()
+          }
+        })
+      }
+    });
+  </script>
+</head>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid navbar-dark bg-dark">
-        <a class="navbar-brand navbar-dark bg-dark">{{username}}</a>
+        <a class="navbar-brand navbar-dark bg-dark">Hello, {{username}}!</a>
         <button class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon navbar-dark bg-dark"></span>
           </button>
           <div class="collapse navbar-collapse navbar-dark bg-dark" id="navbarSupportedContent">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link navbar-dark bg-dark" href="{% url 'todolist:create_task' %}">Tambah Task Baru<span class="sr-only navbar-dark bg-dark"></span></a>
+                  <a class="nav-link navbar-dark bg-dark cursor-pointer" data-bs-toggle="modal" data-bs-target="#createTaskModal">Add Task<span class="sr-only navbar-dark bg-dark"></span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link navbar-dark bg-dark" href="{% url 'todolist:logout' %}">Logout</a>
@@ -20,25 +82,31 @@
     </div>
   </nav>
 
+<div class="modal fade" id="createTaskModal" tabindex="-1" role="dialog" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+  <div class="modal-dialog bg-dark" role="document">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h5 class="modal-title text-white" id="createTaskModalLabel">Add Task</h5>
+      </div>
+      <div class="modal-body">
+        {% csrf_token %}
+        <label class="text-white font-bold">Title</label>
+        <input id="title" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-zinc-800 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="title" name="title" placeholder="Task Title">
+        <label class="text-white font-bold">Description</label>
+        <input id="description" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-zinc-800 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="description" name="description" placeholder="Task Description">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button id="add-task" type="button" class="btn btn-primary" data-bs-dismiss="modal">Add task</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <h1 class="text-zinc-800" style="font-weight:bold ; font-size:50px; margin-bottom: 20px; text-align: center;">Todolist</h1>
 
 <div class="items-center flex justify-center">
-  <div class="grid gap-4 grid-cols-1 sm:grid-flow-cols-1 md:grid-cols-3 lg:grid-cols-4 m-4">
-      {% for task in list_task %}
-      <div class="card text-white bg-dark mb-3 transform transition duration-500 hover:scale-105 flex-auto" style="max-width: 17rem; min-width: 17rem;">
-          <div class="card-header text-white bg-dark mb-3">{% if task.is_finished == False %} <th class="status" style="text-align: center;">Belum Selesai</th> {% else %} <th class="status" style="text-align: center;">Selesai</th> {% endif %}</div>
-          <div class="card-body text-white bg-dark mb-3">
-            <h4 class="card-title text-white bg-dark mb-3" style="text-align: center;">{{task.title}}</h4>
-            <p class="card-text text-white bg-dark mb-3" style="text-align: center;">{{task.description}}</p>
-            <div class="container text-white bg-dark mb-3" style="text-align: center;">
-                <a><button class="button-update bg-green-600" style="margin-right: 20px; width: 90px; height: 30px;"><a class="font-update" href="{% url 'todolist:update' task.id %}">Update</a></button></a>
-                <a><button class="button-delete bg-red-600"style="width: 90px; height: 30px" ><a class="font-delete" href="{% url 'todolist:delete' task.id %}">Delete</a></button></a>
-            </div>
-            <h6 class="card-title text-white bg-dark mb-3" style="text-align: center;">{{task.date}}</h6>
-          </div>
-      </div>
-      {% endfor %}
-  </div>
+  <div class="grid gap-4 grid-cols-1 sm:grid-flow-cols-1 md:grid-cols-3 lg:grid-cols-4 m-4" id="todolist"></div>
 </div>
 
 <h5 class="text-zinc-800" style="text-align: center; margin-top:0px">Sesi terakhir login: {{ last_login }}</h5>
